@@ -452,7 +452,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }),
 	        _react2["default"].createElement(
 	          "div",
-	          { className: "input-group date " + this.size(), ref: "datetimepicker" },
+	          { className: "input-group date " + this.size() + "  " + this.props.inputGroupClassName, ref: "datetimepicker" },
+	          this.props.dateLabel,
 	          _react2["default"].createElement("input", _extends({ className: "form-control", onChange: this.onChange, type: "text", value: this.state.inputValue }, this.props.inputProps)),
 	          _react2["default"].createElement(
 	            "span",
@@ -474,7 +475,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      mode: _ConstantsJs2["default"].MODE_DATETIME,
 	      onChange: function onChange(x) {
 	        console.log(x);
-	      }
+	      },
+	      inputGroupClassName: '',
+	      dateLabel: _react2["default"].createElement("label", null)
 	    },
 	    enumerable: true
 	  }, {
@@ -493,7 +496,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      showToday: _react.PropTypes.bool,
 	      viewMode: _react.PropTypes.string,
 	      size: _react.PropTypes.oneOf([_ConstantsJs2["default"].SIZE_SMALL, _ConstantsJs2["default"].SIZE_MEDIUM, _ConstantsJs2["default"].SIZE_LARGE]),
-	      daysOfWeekDisabled: _react.PropTypes.arrayOf(_react.PropTypes.number)
+	      daysOfWeekDisabled: _react.PropTypes.arrayOf(_react.PropTypes.number),
+	      inputGroupClassName: _react.PropTypes.string,
+	      dateLabel: _react.PropTypes.element
 	    },
 	    enumerable: true
 	  }]);
@@ -1064,8 +1069,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2015 Jed Watson.
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
 	  Licensed under the MIT License (MIT), see
 	  http://jedwatson.github.io/classnames
 	*/
@@ -1077,7 +1082,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var hasOwn = {}.hasOwnProperty;
 
 		function classNames () {
-			var classes = '';
+			var classes = [];
 
 			for (var i = 0; i < arguments.length; i++) {
 				var arg = arguments[i];
@@ -1086,28 +1091,28 @@ return /******/ (function(modules) { // webpackBootstrap
 				var argType = typeof arg;
 
 				if (argType === 'string' || argType === 'number') {
-					classes += ' ' + arg;
+					classes.push(arg);
 				} else if (Array.isArray(arg)) {
-					classes += ' ' + classNames.apply(null, arg);
+					classes.push(classNames.apply(null, arg));
 				} else if (argType === 'object') {
 					for (var key in arg) {
 						if (hasOwn.call(arg, key) && arg[key]) {
-							classes += ' ' + key;
+							classes.push(key);
 						}
 					}
 				}
 			}
 
-			return classes.substr(1);
+			return classes.join(' ');
 		}
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
 		} else if (true) {
 			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
-			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 			window.classNames = classNames;
 		}
