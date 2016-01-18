@@ -1,14 +1,14 @@
 react-bootstrap-datetimepicker
 ===============================
 
-This project is a port of https://github.com/Eonasdan/bootstrap-datetimepicker for React.js
+This project is a fork for the port of https://github.com/Eonasdan/bootstrap-datetimepicker for React.js
 
 Usage
 ===============================
 
 Installation :
 ```
-npm install react-bootstrap-datetimepicker
+npm install https://github.com/RubenSerradas/react-bootstrap-datetimepicker --save
 ```
 
 Then
@@ -42,8 +42,10 @@ DateTimeField
 | **inputProps** | object | undefined | Defines additional attributes for the input element of the component. |
 | **minDate** | moment | undefined | The earliest date allowed for entry in the calendar view. |
 | **maxDate** | moment | undefined | The latest date allowed for entry in the calendar view. |
-| **mode** | string | undefined | Allows to selectively display only the time picker ('time') or the date picker ('date') |
+| **mode** | string | undefined | Allow" to selectively display only the time picker ('time') or the date picker ('date') |
 | **defaultText** | string | {dateTime} | Sets the initial value. Could be an empty string, or helper text. |
+| **inputGroupClassName** | string | {""} | Additional class name(s) for the widget's input group. |
+| **dateLabel** | element | {<label></label>} | A label for the date time picker. |
 
 Update Warning
 ===============================
@@ -59,4 +61,12 @@ var DateTimeField = require('react-bootstrap-datetimepicker');
 
 Contributions
 ===============================
-There is still plenty of features missing compared to the original date time picker, hence contributions would be highly appreciated.
+
+This is only a fork to add some new props for the widget. Check the original 
+project. 
+
+When making new modifications don't forget to make 
+
+```
+npm run build-npm
+```
